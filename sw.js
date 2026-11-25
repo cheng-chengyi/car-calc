@@ -1,4 +1,4 @@
-const CACHE='cashisuan-v215';
+const CACHE='cashisuan-v216';
 const FILES=['./','index.html','params.js','cmpdis.js','manifest.json','icon-192.png','icon-512.png','apple-touch-icon.png','../docx.iife.js'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting()));});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k.startsWith('cashisuan-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});
